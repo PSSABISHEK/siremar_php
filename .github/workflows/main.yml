@@ -19,7 +19,3 @@ jobs:
           ftp-server: ftp.vxs8596.uta.cloud
           ftp-username: siremar-api@siremar.api.vxs8596.uta.cloud
           ftp-password: qazwsxnkomlp
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
