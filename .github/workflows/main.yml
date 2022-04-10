@@ -16,6 +16,7 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
+          local-dir: ./
           ftp-server: ftp.vxs8596.uta.cloud
           ftp-username: siremar-api@siremar.api.vxs8596.uta.cloud
           ftp-password: qazwsxnkomlp
