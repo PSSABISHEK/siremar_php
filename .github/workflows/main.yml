@@ -2,7 +2,7 @@ name: Publish Website to CPanel
 on:
   push:
     branches:
-      - master
+      - fix/action
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
@@ -16,6 +16,6 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          ftp-server: vxs8596.uta.cloud
-          ftp-username: siremar-api
+          ftp-server: ftp.vxs8596.uta.cloud
+          ftp-username: siremar-api@siremar.api.vxs8596.uta.cloud
           ftp-password: qazwsxnkomlp
