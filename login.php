@@ -11,11 +11,11 @@
             $User_id = $_POST['user_id'];
             $Password = $_POST['password'];
             $User_role = $_POST['user_role'];
-
+            
             $sql = "Select user_id, user_role, pwd from user_accounts where user_id = '$User_id' AND user_role = '$User_role'";
             $result = mysqli_query($con, $sql);
-
-            if(mysqli_num_rows($result) == 0){
+            
+            if(mysqli_num_rows($result) == 1){
                 $row = mysqli_fetch_array($result);
 
                 if($Password = $row['pwd']){
@@ -28,15 +28,15 @@
                     if($User_role == 'A101'){
                         $_SESSION['Role'] = "Admin";
                     }
-                    $_SESSION['user_id'] = $user_id;
-                    echo "Success"
+                    $_SESSION['user_id'] = $User_id;
+                    echo json_encode(["user_id" => $User_id, "message" => "Success"]);
                 }
                 else{
                     echo "You have entered an incorrect password. Please try again";
                 }
             }
             else{
-                echo "There is not account with this email id. Please resgister/Sign up";
+                echo "There is not account with this user id. Please resgister/Sign up";
                 
             }
     }

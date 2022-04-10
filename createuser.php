@@ -19,7 +19,7 @@
    $proof_url = $_POST['proof_url'];
    $user_role = $_POST['user_role'];
 
-   $sql = "SELECT email from user_accounts where email = '$email' and user_role = '$user_role'";
+   $sql = "SELECT email from user_accounts where user_id = '$user_id' and user_role = '$user_role'";
    $result = mysqli_query($con, $sql);
 
    if(mysqli_num_rows($result) == 0) {
@@ -27,8 +27,9 @@
         VALUES ('$user_id','$email','$fname', '$lname', '$birth_place', '$dob','$address', '$apt_no','$pwd', '$proof_url', '$user_role')";
         $result = mysqli_query($con, $sql);
         // echo mysqli_error($con);
-        echo "Success";
+        echo json_encode(["message" => "Success"]);
    } else {
-        echo "User already exists";
+        echo json_encode(["message" => "User already exists"]);    
    }
+   
 ?> 
