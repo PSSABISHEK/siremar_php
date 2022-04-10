@@ -16,26 +16,18 @@
 		if(isset($row)) 
 		{
             if ($business_type == 'events'){
-                $details = array('events_rate'=>$row['events_rate']);
-                $jsonstring = json_encode($details);
-                echo $jsonstring;
+                $details = $row['events_rate'];
             } else if ($business_type == 'ferrys') {
-                $details = array('ferrys_rate'=>$row['ferrys_rate']);
-                $jsonstring = json_encode($details);
-                echo $jsonstring;
+                $details = $row['ferrys_rate'];
             } else if ($business_type == 'flights') {
-                $details = array('flights_rate'=>$row['flights_rate']);
-                $jsonstring = json_encode($details);
-                echo $jsonstring;
+                $details = $row['flights_rate'];
             } else if ($business_type == 'clinics') {
-                $details = array('clinics_rate'=>$row['clinics_rate']);
-                $jsonstring = json_encode($details);
-                echo $jsonstring;
+                $details = $row['clinics_rate'];
             } else if ($business_type == 'schools') {
-                $details = array('schools_rate'=>$row['schools_rate']);
-                $jsonstring = json_encode($details);
-                echo $jsonstring;
+                $details = $row['schools_rate'];
             }
+            $jsonstring = json_encode(["message"=>$details]);
+            echo $jsonstring;
 		}
 		else 
 		{

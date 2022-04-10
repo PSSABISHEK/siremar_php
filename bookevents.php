@@ -7,11 +7,11 @@
         echo 'Not Connected to Server';
     }
 
-    $airline_name = $_POST['airline_name'];
-    $flight_no = $_POST['flight_no'];
-    $departure_time = $_POST['departure_time'];
+    $user_id = $_POST['user_id'];
+    $event_id = $_POST['event_id'];
 
-    $sql = "INSERT INTO flights ( airline_name, flight_no, departure ) VALUES ('$airline_name', '$flight_no', '$departure_time')";
+    $sql = "INSERT INTO event_bookings (user_id, event_id)
+    VALUE ('$user_id', '$event_id')";
 
     $result = mysqli_query($con, $sql);
 
@@ -20,5 +20,4 @@
     } else {
         echo json_encode(["message" => "Error"]);
     }
-    
 ?>

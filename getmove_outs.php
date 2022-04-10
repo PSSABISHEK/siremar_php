@@ -7,17 +7,13 @@
         echo 'Not Connected to Server';
     }
 
-    $sql = "SELECT airline_name, flight_no, departure FROM flights WHERE is_active=1";
+    $sql = "Select fname, lname, birth_place, address, apt_no, move_outs.created_on, comments, user_role, is_approved
+    from move_outs join user_accounts ua on ua.user_id = move_outs.user_id";
 
-    // $result = mysqli_query($con, $sql);
-
-    // $details = mysqli_fetch_all ($result, MYSQLI_ASSOC);
-    // echo json_encode(["message"=>$details]);
     $result = mysqli_query($con, $sql);
     if ($result) {
         while ($row = mysqli_fetch_all($result, MYSQLI_ASSOC)) $outArray = $row;
-      }
-    // $details = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
     
     echo json_encode(["message"=>$outArray]);
 ?>

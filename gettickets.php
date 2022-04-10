@@ -7,17 +7,16 @@
         echo 'Not Connected to Server';
     }
 
-    $sql = "SELECT airline_name, flight_no, departure FROM flights WHERE is_active=1";
+    $transport_type = $_POST['transport_type']; //FLIGHT OR FERRY
+    $user_id = $_POST['user_id'];
 
-    // $result = mysqli_query($con, $sql);
-
-    // $details = mysqli_fetch_all ($result, MYSQLI_ASSOC);
-    // echo json_encode(["message"=>$details]);
+    $sql = "SELECT source, destination, date, time FROM transport_bookings WHERE user_id='$user_id' and type='$transport_type'";
+    
     $result = mysqli_query($con, $sql);
     if ($result) {
         while ($row = mysqli_fetch_all($result, MYSQLI_ASSOC)) $outArray = $row;
-      }
-    // $details = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
     
     echo json_encode(["message"=>$outArray]);
+
 ?>
