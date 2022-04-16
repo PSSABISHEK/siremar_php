@@ -1,5 +1,3 @@
-<!--Sivaraman, Vighnesh (1001878596)
-Pichaipillai, Abishek(1001842007)-->
 <?php
     include 'connect.php';
 
@@ -9,9 +7,9 @@ Pichaipillai, Abishek(1001842007)-->
         echo 'Not Connected to Server';
     }
 
-    $user_id = $_POST['user_id'];
+    $id = $_POST['id'];
 
-    $sql = "UPDATE move_outs SET is_approved=1 WHERE user_id='$user_id'";
+    $sql = "UPDATE move_outs SET is_approved=1 WHERE id='$id'";
 
     $result = mysqli_query($con, $sql);
     if ($result) {

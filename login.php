@@ -1,5 +1,3 @@
-<!--Sivaraman, Vighnesh (1001878596)
-Pichaipillai, Abishek(1001842007)-->
 <?php
     session_start();
     include 'connect.php';
@@ -20,7 +18,10 @@ Pichaipillai, Abishek(1001842007)-->
             if(mysqli_num_rows($result) == 1){
                 $row = mysqli_fetch_array($result);
 
-                if($Password = $row['pwd']){
+//                if ($row['is_active'] == 0) {
+//                    echo "You are currently Inactive. Contact and verify your documents at Siremar office";
+//                } else
+                    if($Password = $row['pwd']){
                     if($User_role == 'U101'){
                         $_SESSION['Role'] = "Admin";
                     }
@@ -38,7 +39,7 @@ Pichaipillai, Abishek(1001842007)-->
                 }
             }
             else{
-                echo "There is not account with this user id. Please resgister/Sign up";
+                echo "There is not account with this user id. Please Resister/Sign up";
                 
             }
     }
