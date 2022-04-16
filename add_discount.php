@@ -14,25 +14,9 @@
     $clinic_rate = $_POST['clinic_rate'];
     $school_rate = $_POST['school_rate'];
 
-    $id = $_POST['id'];
-    $is_active = $_POST['is_active'];
-
-    if ($id =='') {
-        $sql = "INSERT INTO master_discount (`name`,
-        `events_rate`,
-        `ferrys_rate`,
-        `flights_rate`,
-        `clinics_rate`,
-        `schools_rate`, `is_active`) VALUE ('$discount_code', '$events_rate', '$ferry_rate', '$flight_rate',
-        '$clinic_rate', '$school_rate', 0)";
-        $result = mysqli_query($con, $sql);
-
-        if ($result) {
-            echo json_encode(["message" => "Added Discount Successfully"]);
-        } else {
-            echo json_encode(["message" => "Error adding Discount"]);
-        }
-    } else {
+    if (array_key_exists('id', $_POST)) {
+        $id = $_POST['id'];
+        $is_active = $_POST['is_active'];
         $sql = "UPDATE master_discount SET `name` = '$discount_code',
         `events_rate` = '$events_rate',
         `ferrys_rate` = '$ferry_rate',
@@ -46,6 +30,22 @@
             echo json_encode(["message" => "Updated Discount Successfully"]);
         } else {
             echo json_encode(["message" => "Error updating Discount"]);
+        }
+
+    } else {
+        $sql = "INSERT INTO master_discount (`name`,
+        `events_rate`,
+        `ferrys_rate`,
+        `flights_rate`,
+        `clinics_rate`,
+        `schools_rate`, `is_active`) VALUE ('$discount_code', '$events_rate', '$ferry_rate', '$flight_rate',
+        '$clinic_rate', '$school_rate', 0)";
+        $result = mysqli_query($con, $sql);
+
+        if ($result) {
+            echo json_encode(["message" => "Added Discount Successfully"]);
+        } else {
+            echo json_encode(["message" => "Error adding Discount"]);
         }
     }
 
