@@ -1,5 +1,3 @@
-<!--Sivaraman, Vighnesh (1001878596)
-Pichaipillai, Abishek(1001842007)-->
 <?php
     include 'connect.php';
 
@@ -14,10 +12,11 @@ Pichaipillai, Abishek(1001842007)-->
     $transport_type = $_POST['transport_type']; //FLIGHT OR FERRY
     $source = $_POST['source'];
     $destination = $_POST['destination'];
+    $date = $_POST['date'];
     $time = $_POST['time'];
-    
-    $sql = "INSERT INTO transport_bookings (user_id, transport_id, type, source, destination, time)
-        VALUES ('$user_id', '$transport_id', '$transport_type', '$source', '$destination', '$time')";
+
+    $sql = "INSERT INTO transport_bookings (user_id, transport_id, type, source, destination, date, time)
+        VALUES ('$user_id', '$transport_id', '$transport_type', '$source', '$destination', '$date', '$time')";
 
     $result = mysqli_query($con, $sql);
     if ($result) {

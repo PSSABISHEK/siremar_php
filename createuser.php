@@ -1,5 +1,3 @@
-<!--Sivaraman, Vighnesh (1001878596)
-Pichaipillai, Abishek(1001842007)-->
 <?php
     include 'connect.php';
 
@@ -29,7 +27,11 @@ Pichaipillai, Abishek(1001842007)-->
         VALUES ('$user_id','$email','$fname', '$lname', '$birth_place', '$dob','$address', '$apt_no','$pwd', '$proof_url', '$user_role')";
         $result = mysqli_query($con, $sql);
         // echo mysqli_error($con);
-        echo json_encode(["message" => "Success"]);
+       if ($result) {
+           echo json_encode(["message" => "Successfully Created the user."]);
+       } else {
+           echo json_encode(["message" => "Error Creating the user!!!"]);
+       }
    } else {
         echo json_encode(["message" => "User already exists"]);    
    }

@@ -1,5 +1,3 @@
-<!--Sivaraman, Vighnesh (1001878596)
-Pichaipillai, Abishek(1001842007)-->
 <?php
     $server = "51.81.160.154";
     $username = 'axp2009_admin';

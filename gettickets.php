@@ -1,6 +1,5 @@
-<!--Sivaraman, Vighnesh (1001878596)
-Pichaipillai, Abishek(1001842007)-->
 <?php
+    $outArray = [];
     include 'connect.php';
 
     $con = mysqli_connect($server,$username,$passwd,$database); 
@@ -12,7 +11,7 @@ Pichaipillai, Abishek(1001842007)-->
     $transport_type = $_POST['transport_type']; //FLIGHT OR FERRY
     $user_id = $_POST['user_id'];
 
-    $sql = "SELECT source, destination, date, time FROM transport_bookings WHERE user_id='$user_id' and type='$transport_type'";
+    $sql = "SELECT transport_id, source, destination, date, time FROM transport_bookings WHERE user_id='$user_id' and type='$transport_type'";
     
     $result = mysqli_query($con, $sql);
     if ($result) {
